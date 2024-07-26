@@ -6,7 +6,6 @@ const ProgressBar = require('progress');
 const path = require('path');
 const readline = require('readline');
 
-// Configuration de winston pour la journalisation
 const logger = winston.createLogger({
     level: 'info',
     format: winston.format.combine(
@@ -25,8 +24,6 @@ const fileExists = (filePath) => {
         });
     });
 };
-
-// Fonction pour extraire un chapitre
 const extractChapter = (videoFile, chapter, index, outputDir) => {
     return new Promise(async (resolve, reject) => {
         const startTime = chapter.start_time;
@@ -96,7 +93,6 @@ const extractFullAudio = (videoFile, outputFile) => {
     });
 };
 
-// Fonction principale pour gérer le téléchargement et l'extraction
 const processVideo = async (videoUrl) => {
 
     try {
@@ -155,7 +151,6 @@ const processVideo = async (videoUrl) => {
     }
 };
 
-// Fonction pour demander à l'utilisateur s'il veut recommencer
 const promptUser = async () => {
     const rl = readline.createInterface({
         input: process.stdin,
@@ -170,7 +165,6 @@ const promptUser = async () => {
     });
 };
 
-// Fonction principale
 const main = async () => {
     let continueProcessing = true;
 
